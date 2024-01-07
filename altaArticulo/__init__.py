@@ -3,18 +3,13 @@ import pathlib
 import mysql
 import azure.functions as func
 
-def obtenerSSLMySQL():
-    path = pathlib.Path(__file__).parent.parent
-    return str(path / 'BaltimoreCyberTrustRoot.crt.pem')
-
 def conexionMySQLPaaS():
-    servidor = "mysql2015170921.mysql.database.azure.com"
+    servidor = "t8-2015110269-bd.mysql.database.azure.com"
     puerto = "3306"
-    usuario = "KarinaRG@mysql2015170921"
-    contrasenia = "sisdis_KRG99"
-    bd = "carrito"
-    certificado = obtenerSSLMySQL()
-    return mysql.connector.connect(host=servidor, port=puerto, user=usuario, passwd=contrasenia, db=bd,ssl_ca=certificado )
+    usuario = "Alan"
+    contrasenia = "contrasea-del-usuario-Alan"
+    bd = "database_shopping_cart"
+    return mysql.connector.connect(host=servidor, port=puerto, user=usuario, passwd=contrasenia, db=bd)
 
 def convertirABinario(filename):
     with open(filename, 'rb') as file:
